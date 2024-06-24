@@ -31,6 +31,10 @@ RUN if [ ! -z "$GITHUB_REPO" ]; then \
 # Install Python dependencies
 RUN pip3 install --no-cache-dir -r requirements.txt
 
+# Download large files
+RUN git lfs install
+RUN git lfs pull
+
 # Expose the default port for Jupyter
 EXPOSE 8888
 
