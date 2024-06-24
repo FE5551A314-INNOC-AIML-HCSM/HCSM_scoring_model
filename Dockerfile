@@ -18,6 +18,7 @@ RUN apt-get update && apt-get install -y \
     unzip \
     git \
     python3-pip \
+    curl \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Clone the GitHub repository
@@ -33,9 +34,7 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Installer Git LFS
 RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
-RUN apt-get install -y git-lfs
-RUN git lfs install
-
+RUN apt-get install git-lfs
 # Download large files
 RUN git lfs pull
 
