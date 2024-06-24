@@ -31,8 +31,12 @@ RUN if [ ! -z "$GITHUB_REPO" ]; then \
 # Install Python dependencies
 RUN pip3 install --no-cache-dir -r requirements.txt
 
-# Download large files
+# Installer Git LFS
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
+RUN apt-get install -y git-lfs
 RUN git lfs install
+
+# Download large files
 RUN git lfs pull
 
 # Expose the default port for Jupyter
