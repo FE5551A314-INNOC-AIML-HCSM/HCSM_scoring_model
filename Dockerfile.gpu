@@ -14,12 +14,25 @@ ENV NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
 
 # Install basic dependencies
 RUN apt-get update && apt-get install -y \
+    openjdk-11-jre-headless \
     wget \
     unzip \
     git \
     curl \
     python3-pip \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Configurer les variables d'environnement
+ENV HADOOP_HOME=/usr/local/hadoop
+ENV PATH=$PATH:$HADOOP_HOME/bin
+ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+ENV PATH=$PATH:$JAVA_HOME/bin
+
+# Installer Hadoop client
+RUN wget https://archive.apache.org/dist/hadoop/common/hadoop-3.3.5/hadoop-3.3.5.tar.gz && \
+    tar -xzvf hadoop-3.3.5.tar.gz && \
+    mv hadoop-3.3.5 /usr/local/hadoop && \
+    rm hadoop-3.3.5.tar.gz
 
 # Clone the GitHub repository
 WORKDIR /content
