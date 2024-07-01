@@ -1,0 +1,88 @@
+{
+    "application_test": {
+        "original": "/content/exports/columns_types_checked/testing_data/application_test.csv",
+        "imputed": {
+            "median": "/content/exports/imputed/testing_data/median/application_test.csv",
+            "mean": "/content/exports/imputed/testing_data/mean/application_test.csv",
+            "most_frequent": "/content/exports/imputed/testing_data/most_frequent/application_test.csv",
+            "constant_0": "/content/exports/imputed/testing_data/constant_0/application_test.csv",
+            "knn": "/content/exports/imputed/testing_data/knn/application_test.csv",
+            "iterative": "/content/exports/imputed/testing_data/iterative/application_test.csv",
+            "ffill": "/content/exports/imputed/testing_data/ffill/application_test.csv",
+            "bfill": "/content/exports/imputed/testing_data/bfill/application_test.csv"
+        }
+    },
+    "POS_CASH_balance": {
+        "original": "/content/exports/columns_types_checked/testing_data/POS_CASH_balance.csv",
+        "imputed": {
+            "median": "/content/exports/imputed/testing_data/median/POS_CASH_balance.csv",
+            "mean": "/content/exports/imputed/testing_data/mean/POS_CASH_balance.csv",
+            "most_frequent": "/content/exports/imputed/testing_data/most_frequent/POS_CASH_balance.csv",
+            "constant_0": "/content/exports/imputed/testing_data/constant_0/POS_CASH_balance.csv",
+            "knn": "/content/exports/imputed/testing_data/knn/POS_CASH_balance.csv",
+            "iterative": "/content/exports/imputed/testing_data/iterative/POS_CASH_balance.csv",
+            "ffill": "/content/exports/imputed/testing_data/ffill/POS_CASH_balance.csv",
+            "bfill": "/content/exports/imputed/testing_data/bfill/POS_CASH_balance.csv"
+        }
+    },
+    "installments_payments": {
+        "original": "/content/exports/columns_types_checked/testing_data/installments_payments.csv",
+        "imputed": {
+            "median": "/content/exports/imputed/testing_data/median/installments_payments.csv",
+            "mean": "/content/exports/imputed/testing_data/mean/installments_payments.csv",
+            "most_frequent": "/content/exports/imputed/testing_data/most_frequent/installments_payments.csv",
+            "constant_0": "/content/exports/imputed/testing_data/constant_0/installments_payments.csv",
+            "knn": "/content/exports/imputed/testing_data/knn/installments_payments.csv",
+            "iterative": "/content/exports/imputed/testing_data/iterative/installments_payments.csv",
+            "ffill": "/content/exports/imputed/testing_data/ffill/installments_payments.csv",
+            "bfill": "/content/exports/imputed/testing_data/bfill/installments_payments.csv"
+        }
+    },
+    "bureau_balance": {
+        "original": "/content/exports/columns_types_checked/testing_data/bureau_balance.csv",
+        "imputed": {
+            "median": "/content/exports/imputed/testing_data/median/bureau_balance.csv",
+            "mean": "/content/exports/imputed/testing_data/mean/bureau_balance.csv",
+            "most_frequent": "/content/exports/imputed/testing_data/most_frequent/bureau_balance.csv",
+            "constant_0": "/content/exports/imputed/testing_data/constant_0/bureau_balance.csv",
+            "knn": "/content/exports/imputed/testing_data/knn/bureau_balance.csv",
+            "iterative": "/content/exports/imputed/testing_data/iterative/bureau_balance.csv",
+            "ffill": "/content/exports/imputed/testing_data/ffill/bureau_balance.csv",
+            "bfill": "/content/exports/imputed/testing_data/bfill/bureau_balance.csv"
+        }
+    },
+    "previous_application": {
+        "original": "/content/exports/columns_types_checked/testing_data/previous_application.csv",
+        "imputed": {}
+    },
+    "bureau": {
+        "original": "/content/exports/columns_types_checked/testing_data/bureau.csv",
+        "imputed": {}
+    },
+    "credit_card_balance": {
+        "original": "/content/exports/columns_types_checked/testing_data/credit_card_balance.csv",
+        "imputed": {
+            "median": "/content/exports/imputed/testing_data/median/credit_card_balance.csv",
+            "mean": "/content/exports/imputed/testing_data/mean/credit_card_balance.csv",
+            "most_frequent": "/content/exports/imputed/testing_data/most_frequent/credit_card_balance.csv",
+            "constant_0": "/content/exports/imputed/testing_data/constant_0/credit_card_balance.csv",
+            "knn": "/content/exports/imputed/testing_data/knn/credit_card_balance.csv",
+            "iterative": "/content/exports/imputed/testing_data/iterative/credit_card_balance.csv",
+            "ffill": "/content/exports/imputed/testing_data/ffill/credit_card_balance.csv",
+            "bfill": "/content/exports/imputed/testing_data/bfill/credit_card_balance.csv"
+        }
+    },
+    "application_train": {
+        "original": "/content/exports/columns_types_checked/testing_data/application_train.csv",
+        "imputed": {
+            "median": "/content/exports/imputed/testing_data/median/application_train.csv",
+            "mean": "/content/exports/imputed/testing_data/mean/application_train.csv",
+            "most_frequent": "/content/exports/imputed/testing_data/most_frequent/application_train.csv",
+            "constant_0": "/content/exports/imputed/testing_data/constant_0/application_train.csv",
+            "knn": "/content/exports/imputed/testing_data/knn/application_train.csv",
+            "iterative": "/content/exports/imputed/testing_data/iterative/application_train.csv",
+            "ffill": "/content/exports/imputed/testing_data/ffill/application_train.csv",
+            "bfill": "/content/exports/imputed/testing_data/bfill/application_train.csv"
+        }
+    }
+}
