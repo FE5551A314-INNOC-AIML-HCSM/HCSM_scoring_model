@@ -11,6 +11,7 @@ ARG NGROK_AUTHTOKEN=""
 
 # Set environment variables
 ENV NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
+ENV DEBIAN_FRONTEND=noninteractive
 
 # Install basic dependencies
 RUN apt-get update && apt-get install -y \
@@ -21,6 +22,8 @@ RUN apt-get update && apt-get install -y \
     curl \
     python3-pip \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+ENV DEBIAN_FRONTEND=dialog
 
 # Configurer les variables d'environnement
 ENV HADOOP_HOME=/usr/local/hadoop
@@ -42,14 +45,15 @@ RUN if [ ! -z "$GITHUB_REPO" ]; then \
       git config user.email "$GITHUB_EMAIL"; \
     fi
 
-# Install Python dependencies
-RUN pip3 install --no-cache-dir -r requirements.txt
-
 # Installer Git LFS
 RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
 RUN apt-get install git-lfs
 # Download large files
 RUN git lfs pull
+
+# Install Python dependencies
+RUN pip3 install --no-cache-dir -r requirements.txt
+
 
 # Expose the default port for Jupyter
 EXPOSE 8888
