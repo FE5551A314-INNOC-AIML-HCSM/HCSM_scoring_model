@@ -22,6 +22,8 @@ RUN sed -i 's|http://archive.ubuntu.com/ubuntu/|http://mirrors.kernel.org/ubuntu
     && sed -i 's|http://security.ubuntu.com/ubuntu/|http://mirrors.kernel.org/ubuntu/|g' /etc/apt/sources.list \
     && sed -i 's|http://mirrors.kernel.org/ubuntu/|http://ftp.us.debian.org/debian/|g' /etc/apt/sources.list
 
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
 # Installer les dépendances de base
 RUN apt-get update && apt-get install -y \
     openjdk-11-jre-headless \
@@ -29,8 +31,7 @@ RUN apt-get update && apt-get install -y \
     unzip \
     git \
     curl \
-    python3-pip \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    python3-pip
 
 ENV DEBIAN_FRONTEND=dialog
 
