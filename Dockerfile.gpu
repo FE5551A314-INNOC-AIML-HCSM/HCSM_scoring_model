@@ -23,6 +23,9 @@ RUN sed -i 's|http://archive.ubuntu.com/ubuntu/|http://mirrors.kernel.org/ubuntu
     && sed -i 's|http://mirrors.kernel.org/ubuntu/|http://ftp.us.debian.org/debian/|g' /etc/apt/sources.list
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update -o Debug::pkgProblemResolver=true
+RUN cat /etc/apt/sources.list
+RUN apt-key list
 
 # Installer les dépendances de base
 RUN apt-get update && apt-get install -y \
