@@ -13,6 +13,12 @@ ARG NGROK_AUTHTOKEN=""
 ENV NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
 ENV DEBIAN_FRONTEND=noninteractive
 
+# Add keys manually to fix the GPG error
+RUN apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/7fa2af80.pub \
+    && apt-key adv --fetch-keys http://archive.ubuntu.com/ubuntu/project/ubuntu-archive-keyring.gpg \
+    && apt-key adv --fetch-keys http://security.ubuntu.com/ubuntu/project/ubuntu-archive-keyring.gpg
+
+
 # Install basic dependencies
 RUN apt-get update && apt-get install -y \
     openjdk-11-jre-headless \
