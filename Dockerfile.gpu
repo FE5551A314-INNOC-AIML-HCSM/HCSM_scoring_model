@@ -13,14 +13,14 @@ ARG NGROK_AUTHTOKEN=""
 ENV NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Change the repository to a different mirror
+# Ajouter les clés GPG manuellement pour éviter les erreurs de signature
+RUN apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/7fa2af80.pub \
+    && apt-key adv --fetch-keys http://us.archive.ubuntu.com/ubuntu/project/ubuntu-archive-keyring.gpg \
+    && apt-key adv --fetch-keys http://security.ubuntu.com/ubuntu/project/ubuntu-archive-keyring.gpg
+
+# Changer les miroirs des dépôts pour utiliser des miroirs alternatifs
 RUN sed -i 's|http://archive.ubuntu.com/ubuntu/|http://us.archive.ubuntu.com/ubuntu/|g' /etc/apt/sources.list \
     && sed -i 's|http://security.ubuntu.com/ubuntu/|http://us.archive.ubuntu.com/ubuntu/|g' /etc/apt/sources.list
-
-# Add keys manually to fix the GPG error
-RUN apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/7fa2af80.pub \
-    && apt-key adv --fetch-keys http://archive.ubuntu.com/ubuntu/project/ubuntu-archive-keyring.gpg \
-    && apt-key adv --fetch-keys http://security.ubuntu.com/ubuntu/project/ubuntu-archive-keyring.gpg
 
 # Install basic dependencies
 RUN apt-get update && apt-get install -y \
