@@ -1,5 +1,5 @@
 # Use a base image with CUDA and Python 3.10
-FROM nvidia/cuda:11.2.2-cudnn8-runtime-ubuntu20.04
+FROM nvidia/cuda:12.5.1-cudnn-devel-ubuntu20.04
 
 # Accept arguments for GitHub and ngrok
 ARG GITHUB_REPO=""
