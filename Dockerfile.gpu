@@ -9,20 +9,17 @@ ARG GITHUB_TOKEN=""
 ARG GITHUB_EMAIL=""
 ARG NGROK_AUTHTOKEN=""
 
-# Set environment variables
-ENV NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
-ENV DEBIAN_FRONTEND=noninteractive
-
 # Ajouter les clés GPG manuellement pour éviter les erreurs de signature
 RUN apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/7fa2af80.pub \
-    && apt-key adv --fetch-keys http://us.archive.ubuntu.com/ubuntu/project/ubuntu-archive-keyring.gpg \
-    && apt-key adv --fetch-keys http://security.ubuntu.com/ubuntu/project/ubuntu-archive-keyring.gpg
+    && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3B4FE6ACC0B21F32 \
+    && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 40976EAF437D05B5 \
+    && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 4E2C6E8793298290
 
-# Changer les miroirs des dépôts pour utiliser des miroirs alternatifs
-RUN sed -i 's|http://archive.ubuntu.com/ubuntu/|http://us.archive.ubuntu.com/ubuntu/|g' /etc/apt/sources.list \
-    && sed -i 's|http://security.ubuntu.com/ubuntu/|http://us.archive.ubuntu.com/ubuntu/|g' /etc/apt/sources.list
+# Utiliser les miroirs alternatifs
+RUN sed -i 's|http://archive.ubuntu.com/ubuntu/|http://mirrors.kernel.org/ubuntu/|g' /etc/apt/sources.list \
+    && sed -i 's|http://security.ubuntu.com/ubuntu/|http://mirrors.kernel.org/ubuntu/|g' /etc/apt/sources.list
 
-# Install basic dependencies
+# Installer les dépendances de base
 RUN apt-get update && apt-get install -y \
     openjdk-11-jre-headless \
     wget \
