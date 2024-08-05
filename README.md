@@ -142,3 +142,12 @@ if __name__ == "__main__":
 ```
 
 With these configurations, you can efficiently manage your notebooks, leverage GPU resources for intensive tasks, connect to Google Colab as a local runtime, and keep your repository up to date easily.
+
+### Todo
+
+- [ ] Finish modelization notebook selection visalization of results's part
+- [ ] Add Polynomial Features
+- [ ] Shap For each client and general
+- [ ] Add pipeline (if realy necessary)
+- [ ] Check why TARGET in model list ...
+- [ ] 
