@@ -1,4 +1,4 @@
-﻿# Home Credit Default Risk
+# Home Credit Default Risk
 
 This project includes two main notebooks for exploratory analysis, feature engineering, and modeling of credit default risk data.
 
@@ -21,7 +21,7 @@ Make sure you have the following installed on your machine before starting:
 Start by cloning this repository to your local machine:
 
 ```sh
-git clone https://github.com/lessons-data-ai-engineer/project_4-home_credit_default_risk.git
+git clone https://github.com/lessons-data-ai-engineer/home_credit_default_risk.git
 cd project_4-home_credit_default_risk
 ```
 
@@ -33,7 +33,7 @@ To build the Docker image without GPU support, use the following command:
 
 ```sh
 docker build -f Dockerfile `
-             --build-arg GITHUB_REPO="github.com/lessons-data-ai-engineer/project_4-home_credit_default_risk.git" `
+             --build-arg GITHUB_REPO="github.com/lessons-data-ai-engineer/home_credit_default_risk.git" `
              --build-arg GITHUB_BRANCH="main" `
              --build-arg GITHUB_USERNAME="your-username" `
              --build-arg GITHUB_TOKEN="your_github_token" `
@@ -48,7 +48,7 @@ To build the Docker image with GPU support, use the following command:
 
 ```sh
 docker build -f Dockerfile.gpu `
-             --build-arg GITHUB_REPO="github.com/lessons-data-ai-engineer/project_4-home_credit_default_risk.git" `
+             --build-arg GITHUB_REPO="github.com/lessons-data-ai-engineer/home_credit_default_risk.git" `
              --build-arg GITHUB_BRANCH="main" `
              --build-arg GITHUB_USERNAME="your-username" `
              --build-arg GITHUB_TOKEN="your_github
