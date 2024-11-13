@@ -1,5 +1,7 @@
 # Home Credit Default Risk
 
+Stagging
+
 This project includes two main notebooks for exploratory analysis, feature engineering, and modeling of credit default risk data.
 
 - [Notebook exploratory analysis and feature engineering](./Fusilier_Antoine_1_notebook_exploratory_analysis_and_cleaning_and_feature_enginering_022024.ipynb)
