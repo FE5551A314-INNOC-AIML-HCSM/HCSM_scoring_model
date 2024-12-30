@@ -1,0 +1,44 @@
+@startuml
+title Pipeline for Exploratory Analysis, Cleaning, and Feature Engineering
+
+start
+:Home Credit Default Risk Project;
+if (Exploratory Analysis and Cleaning?) then (Yes)
+    :Imports;
+    :Constantes (Settings);
+    :Resources check;
+    if (Import resources?) then (Yes)
+        :Resources import;
+    endif
+    :Dataframes creation;
+    :Dataframes preview;
+endif
+
+if (Exploratory Data Analysis?) then (Yes)
+    :Examine Target Column;
+    :Examine Missing Values;
+    :Analyze Column Types;
+    :Handle Missing Values;
+    :Imputation Methods;
+    :Evaluate Imputation Performance;
+    :Handle Outliers;
+    :Duplicate Management;
+endif
+
+if (Feature Engineering?) then (Yes)
+    :Label Encoding;
+    :One-Hot Encoding;
+    :Analyze Correlations;
+    :Feature Selection;
+    :Domain Knowledge Features;
+endif
+
+if (Train Model?) then (Yes)
+    :Baseline Model;
+    :Train Logistic Regression;
+    :Improve with Random Forest;
+    :Feature Importance Analysis;
+endif
+
+stop
+@enduml

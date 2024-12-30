@@ -1,0 +1,58 @@
+resources:
+  s3:
+    config:
+      aws_access_key_id:
+      aws_secret_access_key:
+      region: eu-west-3
+  path_config:
+    config:
+      local_resources_folder_path: "../data/raw"
+      local_export_folder_path: "../data/interim"
+      files:
+        app_train_file: "application_train.csv"
+        previous_application_file: "previous_application.csv"
+        bureau_file: "bureau.csv"
+        bureau_balance_file: "bureau_balance.csv"
+        pos_cash_balance_file: "POS_CASH_balance.csv"
+        credit_card_balance_file: "credit_card_balance.csv"
+        installments_payments_file: "installments_payments.csv"
+        app_test_file: "application_test.csv"
+        homecredit_columns_description_file: "HomeCredit_columns_description.csv"
+      steps:
+        columns_metadata: "columns_metadata_files"
+        first_sweetviz_reports: "first_sweetviz_reports"
+        missing_values_replaced: "missing_values_replaced"
+        columns_types_checked: "columns_types_checked"
+        replace_to_nan: "replace_to_nan"
+        imputed: "imputed"
+        imputation_checks: "imputed_checks"
+        imputation_results: "imputation_results"
+        imputed_without_outliers: "imputed_without_outliers"
+        imputed_without_duplicates: "imputed_without_duplicates"
+        feature_engineered: "feature_engineered"
+        merged_dataframes: "merged_dataframes"
+        encoded_and_aligned: "encoded_and_aligned"
+        manual_check_patch: "manual_check_patch"
+      general_settings:
+        testing_mode: false
+        testing_mode_max_lines: 1000
+        testing_mode_sub_folder_name: "testing_data"
+        general_chunk_size: 10000
+ops:
+  download_csv_from_s3:
+    inputs:
+      bucket_name: "fe5551a314-innoc-aiml-hcsm"
+      prefix: "HCSM_MODEL_MLSL_440d7160e450/data/raw/"
+      local_folder: "data/raw/source"
+  convert_csv_to_parquet_gz:
+    inputs:
+      input_folder: data/raw/source
+      output_folder: data/raw/parquet
+      chunksize: 50000
+      skip_existing: True
+  upload_folder_to_s3:
+    inputs:
+      folder_path: data/raw/parquet
+      bucket_name: "fe5551a314-innoc-aiml-hcsm"
+      s3_prefix: "HCSM_MODEL_MLSL_440d7160e450/data/raw/parquet"
+  

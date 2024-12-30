@@ -15,6 +15,10 @@ Make sure you have the following installed on your machine before starting:
 2. [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 3. [NVIDIA Docker Runtime](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html) (for GPU support, if needed)
 4. [ngrok](https://dashboard.ngrok.com/signup) (sign up and get your authtoken)
+5. latexpdf > `sudo apt install texlive-full`
+6. A specific pyenv > `python3 -m venv ~/bin/main_data_env`
+    -> `source ~/bin/main_data_env/bin/activate`
+sudo apt-get install python3-tk
 
 ## Instructions
 
@@ -53,9 +57,7 @@ docker build -f Dockerfile.gpu `
              --build-arg GITHUB_REPO="github.com/lessons-data-ai-engineer/home_credit_default_risk.git" `
              --build-arg GITHUB_BRANCH="main" `
              --build-arg GITHUB_USERNAME="your-username" `
-             --build-arg GITHUB_TOKEN="your_github
-
-_token" `
+             --build-arg GITHUB_TOKEN="your_github_token" `
              --build-arg GITHUB_EMAIL="your-email@gmail.com" `
              --build-arg NGROK_AUTHTOKEN="your_ngrok_authtoken" `
              -t home_credit_default_risk_gpu .
@@ -105,6 +107,29 @@ To connect your Docker container to Google Colab as a local runtime, follow thes
    http://127.0.0.1:8888/tree
    ```
 4. Click the "Connect" button.
+
+
+### 5.1 Dagster execution
+
+Run it 
+```bash
+dagster dev -f pipelines/repository.py
+```
+```bash
+dagster dev -f pipelines/repository.py -c config/settings.yaml
+```
+
+```bash
+dagster job execute -f pipelines/repository.py -j retrieve_and_prepare_source_data_pipeline -c config/settings.yaml
+```
+
+```bash
+dagster job execute -f pipelines/repository.py -j data_analysis_pipeline -c config/settings.yaml
+```
+
+```bash
+dagster job execute -f pipelines/repository.py -c config/settings.yaml
+```
 
 ### 6. File Management
 
